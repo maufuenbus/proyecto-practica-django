@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     {% load static %}
+    <link rel="stylesheet" href="{% static 'app/css/fontawesome-all.min.css' %}">
     <link rel="stylesheet" href="{% static 'app/css/main.css' %}" />
 </head>
 <body class="is-preload homepage" >
@@ -96,8 +97,6 @@
                         <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
                         <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
                         <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                        <!-- <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-                        <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li> -->
                     </ul>
                     <p>1234 Fictional Road<br />
                         Nashville, TN 00000<br />
@@ -118,11 +117,8 @@
     </footer>
 </div>
 </div>
-<!-- MEMORICE -->
-<script src="{% static 'app/js/memo-main.js' %}"></script>
-<script src="{% static 'app/js/carga-imagenes.js' %}"></script>
-<!-- SONOMETRO -->
-<script src="{% static 'app/js/sonometro.js' %}"></script>
+
+
 
 <!-- SEGUNDO ELEMENTO SONOMETRO -->
 
@@ -135,9 +131,7 @@
 <script src="{% static 'app/js/breakpoints.min.js' %}"></script>
 <script src="{% static 'app/js/util.js' %}"></script>
 <script src="{% static 'app/js/main.js' %}"></script>
-<!-- METRONOMO -->
-<script src="{% static 'app/js/microfono.js' %}"></script>
-<script src="{% static 'app/js/metronomo.js' %}"></script>
+
 {% block js%}
 {% endblock %}
 </body>

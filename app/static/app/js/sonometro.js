@@ -70,6 +70,7 @@ function main() {
             let color = 'hsl(' + i * 2 + ', 100%, 50%)';
             bars.push(new Bar(i * barWidth , canvas.height/2 , 1.9, 20, color))
         }
+     
     }
     createBars();
     function animate() {
