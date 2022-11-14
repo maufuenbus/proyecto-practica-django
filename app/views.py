@@ -16,3 +16,6 @@ def sonometro(request):
 
 def metronomo(request):
     return render(request,'app/metronomo.html')
+
+def oscilograma(request):
+    return render(request,'app/oscilograma.html')
