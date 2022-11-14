@@ -1,10 +1,15 @@
-
+.page-wrapper{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
 main{
+    justify-content: center;
     width: 730px;
-    margin: 100px auto 50px;
-    margin: 30px auto;
     display: flex;
     align-items: center;
+    
 }
 
 .titulo{
@@ -12,17 +17,20 @@ main{
 }
 
 .section1{
-    background-color: rgba(255,255,255,0.2);
-    padding: 0 10px 10px 10px;
+    background-color: rgba(0, 0, 0, 0.308);
+    padding: 10px 10px 10px 10px;
     border-radius: 8px;
+}
+tr {
+    display: flex;
 }
 
 .carta{
-    height: 100px;
-    width: 100px;
-    font-size: 40px;
-    color: black;
     font-weight: bold;
+    font-size: 25px;
+    color: #000000;
+    width: 100px;
+    height: 100px;
 }
 
 button:hover{
@@ -30,17 +38,16 @@ button:hover{
 }
 
 .section2{
-    background-color: rgba(255,255,255,0.2);
-    border-top-right-radius: 8px ;
-    border-bottom-right-radius: 8px ;
+    background-color: rgba(56, 53, 53, 0.425);
+    border-radius: 8px ;
     width: 250px;
-    height: 400px;
+    height: 450px;
     padding: 0 20px;
- 
 }
 .section2 h2{
-   font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-top: 15px;
 }
 .estadisticas{
     border: 1px solid white;
@@ -50,8 +57,33 @@ button:hover{
     box-sizing: border-box;
 }
 
+.boton-restart{
+    margin-top: 5px;
+    border-radius: 5px;
+    float: right;
+    background-color: rgb(37, 45, 158);
+}
+@media (max-width: 800px){
+    .page-wrapper{
+        justify-content: center;
+    }
+    .section2{
+        display: inline-flex;
+        width: 700px;
+        height: fit-content;
+        padding: 5px 5px;
+    }
 
-
+    .boton-restart{
+        width: 110px;
+        margin:15px ;
+        height: 80px;
+    }
+    .btn-carga button{
+        width: 150px;
+        justify-content: center;
+    }
+}
 
 
 

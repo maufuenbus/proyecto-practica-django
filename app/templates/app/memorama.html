@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="{% static 'app/css/style-memorice.css' %}">
 <link rel="stylesheet" href="{% static 'app/css/fontawesome-all.min.css' %}">
 <div style="width: 100%;">
-    <div class="m-3 text-center">
+    <div class="m-3 text-center btn-carga">
         <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#myModal">
             Cargar imagenes
         </button>
@@ -41,7 +41,7 @@
         </div>
     </div>
 </div>
-
+<div class="page-wrapper">
 <main>
     <section class="section1">
         <h1 class="titulo"> 🎴​ juego de memoria 🎴​</h1>
@@ -72,14 +72,15 @@
             </tr>
         </table>
     </section>
-    <section class="section2">
-        <h2 id="Aciertos" class="estadisticas">Aciertos: 0</h2>
-        <h2 id="t-restante" class="estadisticas">Tiempo: 60 segundos</h2>
-        <h2 id="movimientos" class="estadisticas">Movimientos</h2>
-        <button class="boton-restart" onclick="restart()">Reiniciar</button>
-    </section>
-
 </main>
+<section class="section2">
+    <h2 id="Aciertos" class="estadisticas">Aciertos: 0</h2>
+    <h2 id="t-restante" class="estadisticas">Tiempo: 60 segundos</h2>
+    <h2 id="movimientos" class="estadisticas">Movimientos</h2>
+    <button class="boton-restart" onclick="restart()">Reiniciar</button>
+</section>
+
+</div>
 
 
 <!-- MEMORICE -->
