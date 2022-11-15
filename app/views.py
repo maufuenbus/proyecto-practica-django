@@ -19,3 +19,6 @@ def metronomo(request):
 
 def oscilograma(request):
     return render(request,'app/oscilograma.html')
+
+def medidor(request):
+    return render(request,'app/medidor-sonido.html')

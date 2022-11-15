@@ -22,10 +22,21 @@
                 <nav id="nav">
                     <ul>
                         <li class="current"><a href="{% url 'login' %}">Iniciar Sesion</a></li>
-                        <li><a href="{% url 'metronomo' %}">Vocalización</a></li>
-                        <li><a href="{% url 'sonometro' %}">Intensidad</a></li>
-                        <li><a href="{% url 'memorama' %}">memorama</a></li>
-                        <li><a href="{% url 'oscilograma' %}">oscilograma</a></li>
+                        <li>Vocalización
+                            <ul>
+                                <li><a href="{% url 'metronomo' %}">Vocalización</a></li>
+                                <li><a href="{% url 'sonometro' %}">Intensidad</a></li>
+                                <li><a href="{% url 'oscilograma' %}">Oscilograma</a></li>
+                                <li><a href="{% url 'medidor' %}">Medidor de sonido</a></li>
+                            </ul>
+                        </li>
+                        <li>Juegos
+                            <ul>
+                                <li><a href="{% url 'memorama' %}">Memorama</a></li>
+                            </ul>
+                        </li>
+                        
+                        
                         <!-- <li><a href=" ">Perfil</a>
                             
                         <li class="current"><a href=" ">Cerrar sesión</a></li> -->
