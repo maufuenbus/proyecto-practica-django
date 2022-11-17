@@ -40,8 +40,8 @@ const init = () => {
                 $duracion.textContent = segundosATiempo((Date.now() - tiempoInicio) / 1000);
             }
             
-        // Consulta la lista de dispositivos de entrada de audio y llena el select
-        
+
+            // Consulta la lista de dispositivos de entrada de audio y llena el select
         const llenarLista = () => {
             navigator
             .mediaDevices
@@ -60,6 +60,7 @@ const init = () => {
                 })
             })
         };
+
         // Ayudante para la duración; no ayuda en nada pero muestra algo informativo
         const comenzarAContar = () => {
             tiempoInicio = Date.now();
@@ -69,8 +70,7 @@ const init = () => {
         // Comienza a grabar el audio con el dispositivo seleccionado
         const comenzarAGrabar = () => {
             if (!$listaDeDispositivos.options.length) return alert("No hay dispositivos");
-            // No permitir que se grabe doblemente
-            if (mediaRecorder) return alert("Excelente, completaste tu Ejercitación. Recuerda que debes ejercitar almenos 3 veces al día");
+            if (mediaRecorder) return alert("Excelente, completaste tu Ejercitación. Recuerda que debes ejercitar almenos 3 veces al día"); // No permitir que se grabe doblemente
 
             navigator.mediaDevices.getUserMedia({
                     audio: {
@@ -79,44 +79,38 @@ const init = () => {
                 })
                 .then(
                     stream => {
-                        // Comenzar a grabar con el stream
-                        mediaRecorder = new MediaRecorder(stream);
+                        mediaRecorder = new MediaRecorder(stream);                      // Comenzar a grabar con el stream
                         mediaRecorder.start();
                         comenzarAContar();
-                        // En el arreglo pondremos los datos que traiga el evento dataavailable
-                        const fragmentosDeAudio = [];
-                        // Escuchar cuando haya datos disponibles
-                        mediaRecorder.addEventListener("dataavailable", evento => {
-                            // Y agregarlos a los fragmentos
-                            fragmentosDeAudio.push(evento.data);
+                        const fragmentosDeAudio = [];                                   // En el arreglo pondremos los datos que traiga el evento dataavailable
+                        mediaRecorder.addEventListener("dataavailable", evento => {     // Escuchar cuando haya datos disponibles
+                            fragmentosDeAudio.push(evento.data);                           // Y agregarlos a los fragmentos
                         });
-                        // Cuando se detenga (haciendo click en el botón) se ejecuta esto
-                        mediaRecorder.addEventListener("stop", () => {
-                            // Detener el stream
-                            stream.getTracks().forEach(track => track.stop());
-                            // Detener la cuenta regresiva
-                            detenerConteo();
-                            // Convertir los fragmentos a un objeto binario
-                            const blobAudio = new Blob(fragmentosDeAudio);
 
-                            // Crear una URL o enlace para descargar
-                            const urlParaDescargar = URL.createObjectURL(blobAudio);
-                            // Crear un elemento <a> invisible para descargar el audio
-                            let a = document.createElement("a");
+
+                        // Cuando se detenga (haciendo click en el botón) se ejecuta esto
+                        // GUARDAR EL ARCHIVO
+                        mediaRecorder.addEventListener("stop", () => {                           
+                            stream.getTracks().forEach(track => track.stop());  // Detener el stream
+                            detenerConteo();                                    // Detener la cuenta regresiva
+                            
+                            
+                            const blobAudio = new Blob(fragmentosDeAudio);                  // Convertir los fragmentos a un objeto binario
+                            const urlParaDescargar = URL.createObjectURL(blobAudio);        // Crear una URL o enlace para descargar
+
+                            let a = document.createElement("a");                            // Crear un elemento <a> invisible para descargar el audio
                             document.body.appendChild(a);
                             a.style = "display: none";
                             a.href = urlParaDescargar;
                             a.download = "ejercicio_vocal.wav";
-                            // Hacer click en el enlace
-                            a.click();
-                            // Y remover el objeto
-                            window.URL.revokeObjectURL(urlParaDescargar);
+                            a.click();                                          // Hacer click en el enlace
+                            window.URL.revokeObjectURL(urlParaDescargar);       // Y remover el objeto
+
                         });
                     }
                 )
                 .catch(error => {
-                    // Aquí maneja el error, tal vez no dieron permiso
-                    console.log(error)
+                    console.log(error) // Aquí maneja el error, tal vez no dieron permiso
                 });
         };
 
@@ -132,6 +126,8 @@ const init = () => {
             mediaRecorder.stop();
             mediaRecorder = null;
         };
+
+
 
 
     $btnComenzarGrabacion.addEventListener("click", comenzarAGrabar);
