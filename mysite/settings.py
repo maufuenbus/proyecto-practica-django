@@ -27,10 +27,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookiesStorage"
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 STATICFILES_DIRS = ['F:/proyectos/proyecto-practica/app/static']
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_interface',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,7 +44,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'colorfield',
+    'crispy_forms',
 ]
+
+X_FRAME_OPTIONS='SAMEORIGIN'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -104,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
@@ -114,8 +126,16 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+LOGIN_REDIRECT_URL = 'index'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = 'static/'
+
+STATIC_ROOT = 'static/'
+STATIC_URL = '/static/'
+
+import os
+
+MEDIA_URL = '/archivos_media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'archivos_media')
+

@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     {% load static %}
+
     <link rel="stylesheet" href="{% static 'app/css/fontawesome-all.min.css' %}">
     <link rel="stylesheet" href="{% static 'app/css/main.css' %}" />
 </head>
@@ -21,8 +22,8 @@
                 <!-- Nav -->
                 <nav id="nav">
                     <ul>
-                        <li class="current"><a href="{% url 'login' %}">Iniciar Sesion</a></li>
-                        <li>Vocalización
+                        <!-- <li class="current"><a href="{% url 'login' %}">Iniciar Sesion</a></li> -->
+                        <li><a href="">Vocalización</a> 
                             <ul>
                                 <li><a href="{% url 'metronomo' %}">Vocalización</a></li>
                                 <li><a href="{% url 'sonometro' %}">Intensidad</a></li>
@@ -30,12 +31,23 @@
                                 <li><a href="{% url 'medidor' %}">Medidor de sonido</a></li>
                             </ul>
                         </li>
-                        <li>Juegos
+                        <li><a href="">Juegos</a> 
                             <ul>
                                 <li><a href="{% url 'memorama' %}">Memorama</a></li>
                             </ul>
                         </li>
-                        
+                        {% if user.is_authenticated %}
+                        <li  class="current">
+                            <a href="{% url 'logout' %}">Cerrar Sesion</a>
+                        </li>
+                        <li>
+                            <a href=""> Hola {{ user.username}}</a>
+                        </li>
+                        {% else %}
+                        <li class="current">
+                            <a href="{% url 'login' %}">Iniciar sesion</a>
+                        </li>
+                        {% endif %}
                         
                         <!-- <li><a href=" ">Perfil</a>
                             
