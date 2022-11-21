@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import index, memorama, metronomo, sonometro, oscilograma, medidor
 
+
+
 urlpatterns = [
     path('', index, name="index"),
     path('memorama/', memorama, name="memorama"),
