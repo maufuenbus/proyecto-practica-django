@@ -90,6 +90,34 @@ const init = () => {
 
 
                     // Cuando se detenga (haciendo click en el botón) se ejecuta esto
+                    mediaRecorder.addEventListener("stop", () => {
+                        // Detener el stream
+                        stream.getTracks().forEach(track => track.stop());
+                        // Detener la cuenta regresiva
+                        detenerConteo();
+
+                        // Convertir los fragmentos a un objeto binario
+                        // const blobAudio = new Blob(fragmentosDeAudio);
+                        // const formData = new FormData();
+                        // // Enviar el BinaryLargeObject con FormData
+                        // formData.append("audio", blobAudio);
+
+                        // const RUTA_SERVIDOR = 'http://localhost:3000/subir';   ////////AQUI VA LA RUTA DEL SERVIDOR
+                        // $duracion.textContent = "Enviando audio...";
+                        // fetch(RUTA_SERVIDOR, {
+                        //     method: "POST",
+                        //     body: formData,
+                        // })
+                        //     .then(respuestaRaw => respuestaRaw.text()) // Decodificar como texto
+                        //     .then(respuestaComoTexto => {
+                        //         // Aquí haz algo con la respuesta ;)
+                        //         console.log("La respuesta: ", respuestaComoTexto);
+                        //         // Abrir el archivo, es opcional y solo lo pongo como demostración
+                        //         $duracion.innerHTML = `<strong>Audio subido correctamente.</strong>&nbsp; <a target="_blank" href="${respuestaComoTexto}">Abrir</a>`
+                        //     })
+                    });
+
+                    // Cuando se detenga (haciendo click en el botón) se ejecuta esto
                     // GUARDAR EL ARCHIVO
                     // mediaRecorder.addEventListener("stop", () => {
                     //     stream.getTracks().forEach(track => track.stop());  // Detener el stream
