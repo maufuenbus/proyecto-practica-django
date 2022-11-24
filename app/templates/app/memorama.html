@@ -77,10 +77,29 @@
     <h2 id="Aciertos" class="estadisticas">Aciertos: 0</h2>
     <h2 id="t-restante" class="estadisticas">Tiempo: 60 segundos</h2>
     <h2 id="movimientos" class="estadisticas">Movimientos</h2>
-    <button class="boton-restart" onclick="restart()">Reiniciar</button>
+
+    <section>
+    {% load crispy_forms_tags %}
+            <form action="" method="post">
+                <div style="display:none">
+                    <h4>Ingresa una entrada</h4>
+                    {% csrf_token %}
+                    {{form | crispy}}
+                </div>
+                <div id="btn-guardar" >
+                    <button type="submit" class="boton-restart" onclick="restart()">Reiniciar y guardar</button>
+                </div>
+                {{ mensaje }}
+            </form>
+</section>
+
+    
 </section>
 
 </div>
+
+
+
 
 
 <!-- MEMORICE -->

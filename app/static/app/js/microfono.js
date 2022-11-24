@@ -38,6 +38,7 @@ const init = () => {
     let tiempoInicio, mediaRecorder, idIntervalo;
     const refrescar = () => {
         $duracion.textContent = segundosATiempo((Date.now() - tiempoInicio) / 1000);
+
     }
 
 
@@ -65,6 +66,7 @@ const init = () => {
     const comenzarAContar = () => {
         tiempoInicio = Date.now();
         idIntervalo = setInterval(refrescar, 500);
+
     };
 
     // Comienza a grabar el audio con el dispositivo seleccionado
@@ -146,7 +148,9 @@ const init = () => {
     const detenerConteo = () => {
         clearInterval(idIntervalo);
         tiempoInicio = null;
+        document.getElementById('total_duracion').value = $duracion.textContent
         $duracion.textContent = "";
+        console.log($duracion.textContent);
     }
 
     const detenerGrabacion = () => {
