@@ -93,7 +93,6 @@ function destapar(id) {
                 mostrarTiempo.innerHTML = `Fantastico! 🙌​ solo demoraste ${timerInicial - timer} segundos`
                 mostrarMovimientos.innerHTML = `Movimientos: ${movimientos} 💪​😄`
 
-                // esto lo escribio fabian
                 document.getElementById('total_acierto').value = aciertos
                 document.getElementById('total_tiempo').value = timerInicial - timer
                 document.getElementById('total_movimientos').value = movimientos

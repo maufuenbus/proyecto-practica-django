@@ -19,7 +19,6 @@ class Timer {
 
             this.timeout = setTimeout(this.round, this.timeInterval);
             //console.log('Timer Started');
-
         };
         // Add method to stop timer
         this.stop = () => {
@@ -50,10 +49,6 @@ class Timer {
     }
 }
 
-
-
-
-
 const tempoDisplay = document.querySelector('.tempo');
 const tempoText = document.querySelector('.tempo-text');
 const decreaseTempoBtn = document.querySelector('.decrease-tempo');
@@ -79,17 +74,18 @@ decreaseTempoBtn.addEventListener('click', () => {
     validateTempo();
     updateMetronome();
 });
+
 increaseTempoBtn.addEventListener('click', () => {
     if (bpm >= 280) { return };
     bpm++;
     validateTempo();
     updateMetronome();
 });
+
 tempoSlider.addEventListener('input', () => {
     bpm = tempoSlider.value;
     validateTempo();
     updateMetronome();
-
 });
 
 subtractBeats.addEventListener('click', () => {
@@ -97,14 +93,17 @@ subtractBeats.addEventListener('click', () => {
     beatsPerMeasure--;
     measureCount.textContent = beatsPerMeasure;
     count = 0;
-
 });
+
 addBeats.addEventListener('click', () => {
     if (beatsPerMeasure >= 12) { return };
     beatsPerMeasure++;
     measureCount.textContent = beatsPerMeasure;
     count = 0;
 });
+
+
+
 
 startStopBtn.addEventListener('click', () => {
     count = 0;
@@ -131,17 +130,16 @@ function updateMetronome() {
     if (bpm > 220 && bpm < 240) { tempoTextString = "Funky Stuff" };
     if (bpm > 240 && bpm < 260) { tempoTextString = "Relax Dude" };
     if (bpm > 260 && bpm <= 280) { tempoTextString = "Eddie Van Halen" };
-
+    document.getElementById('total_bpm').value = tempoSlider.value
     tempoText.textContent = tempoTextString;
-
 }
+
 function validateTempo() {
     if (bpm <= 20) { return };
     if (bpm >= 280) { return };
 }
 
 function playClick() {
-    //console.log(count);
     if (count === beatsPerMeasure) {
         count = 0;
 
@@ -158,7 +156,6 @@ function playClick() {
 
 const metronome = new Timer(playClick, 60000 / bpm, { immediate: true });
 
-// document.getElementById('total_bpm').value = bpm
-// document.getElementById('total_beats').value = beatsPerMeasure
-// document.getElementById('total_duracion').value = duracion
+
+// 
 // document.getElementById('btn-guardar').style.opacity = "1"

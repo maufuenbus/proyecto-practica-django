@@ -144,13 +144,14 @@ const init = () => {
             });
     };
 
-
     const detenerConteo = () => {
         clearInterval(idIntervalo);
         tiempoInicio = null;
-        document.getElementById('total_duracion').value = $duracion.textContent
+        const duracion = $duracion.textContent
+        document.getElementById('total_duracion').value = duracion
+        console.log(duracion);
         $duracion.textContent = "";
-        console.log($duracion.textContent);
+
     }
 
     const detenerGrabacion = () => {

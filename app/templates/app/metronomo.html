@@ -45,20 +45,20 @@
 
                     <p class="duracion" id="duracion">--Duración--</p>
                 </div>
-               <section>
+                <section>
                     {% load crispy_forms_tags %}
-            <form action="" method="post">
-                <div style="display:none">
-                    <h4>Ingresa una entrada</h4>
-                    {% csrf_token %}
-                    {{form | crispy}}
-                </div>
-                <div id="btn-guardar" >
-                    <button type="submit" class="boton-restart" onclick="restart()">guardar</button>
-                </div>
-                {{ mensaje }}
-            </form>
-</section>
+                    <form action="" method="post">
+                        <div style="display:none">
+                            <h4>Ingresa una entrada</h4>
+                            {% csrf_token %}
+                            {{form | crispy}}
+                        </div>
+                        <div id="btn-guardar" >
+                            <input type="submit" value="guardar">
+                        </div>
+                        {{ mensaje }}
+                    </form>
+                </section>
             </div>
         </div>
     </div>
