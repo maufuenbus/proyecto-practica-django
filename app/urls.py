@@ -1,6 +1,5 @@
 from django.urls import path
-from .views import index, memorama, metronomo, sonometro, oscilograma, medidor
-
+from .views import index, memorama, metronomo, sonometro, oscilograma, medidor, crucigrama
 
 
 urlpatterns = [
@@ -10,5 +9,5 @@ urlpatterns = [
     path('sonometro/', sonometro, name="sonometro"),
     path('oscilograma/', oscilograma, name="oscilograma"),
     path('medidor/', medidor, name="medidor"),
+    path('crucigrama/', crucigrama, name="crucigrama"),
 ]
-

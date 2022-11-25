@@ -57,3 +57,7 @@ def oscilograma(request):
 
 def medidor(request):
     return render(request, 'app/medidor-sonido.html')
+
+
+def crucigrama(request):
+    return render(request, 'app/crucigrama.html')
