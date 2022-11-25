@@ -55,6 +55,13 @@ class MetronomoForm(forms.ModelForm):
             'id': 'total_duracion'
         }))
 
+    # audio = forms.FileField(widget=forms.FileInput(
+    #     attrs={
+
+    #         'placeholder': 'Ingresa audio',
+    #         'id': 'audio'
+    #     }))
+
     class Meta:
         model = Metronomo
-        fields = 'bpm', 'beats', 'duracion',
+        fields = 'bpm', 'beats', 'duracion',  # 'audio'

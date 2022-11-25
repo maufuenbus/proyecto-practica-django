@@ -87,7 +87,8 @@ const init = () => {
                     const fragmentosDeAudio = [];                                   // En el arreglo pondremos los datos que traiga el evento dataavailable
                     mediaRecorder.addEventListener("dataavailable", evento => {     // Escuchar cuando haya datos disponibles
                         fragmentosDeAudio.push(evento.data);                         // Y agregarlos a los fragmentos
-                        console.log(fragmentosDeAudio)                          // se ve por consola el objeto
+                        console.log(fragmentosDeAudio)
+                        //document.getElementById('total_duracion').value = duracion// se ve por consola el objeto
                     });
 
 

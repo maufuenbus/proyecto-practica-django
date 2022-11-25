@@ -84,6 +84,7 @@ increaseTempoBtn.addEventListener('click', () => {
 
 tempoSlider.addEventListener('input', () => {
     bpm = tempoSlider.value;
+
     validateTempo();
     updateMetronome();
 });
@@ -122,27 +123,28 @@ function updateMetronome() {
     tempoDisplay.textContent = bpm;
     tempoSlider.value = bpm;
     metronome.timeInterval = 60000 / bpm;
-    if (bpm <= 40) { tempoTextString = "Super Slow" };
-    if (bpm > 40 && bpm < 80) { tempoTextString = "Slow" };
-    if (bpm > 80 && bpm < 120) { tempoTextString = "Getting there" };
-    if (bpm > 120 && bpm < 180) { tempoTextString = "Nice and Steady" };
-    if (bpm > 180 && bpm < 220) { tempoTextString = "Rock n' Roll" };
-    if (bpm > 220 && bpm < 240) { tempoTextString = "Funky Stuff" };
-    if (bpm > 240 && bpm < 260) { tempoTextString = "Relax Dude" };
-    if (bpm > 260 && bpm <= 280) { tempoTextString = "Eddie Van Halen" };
-    document.getElementById('total_bpm').value = tempoSlider.value
+
+    if (bpm <= 40) { tempoTextString = "Demasiado Lento" };
+    if (bpm > 40 && bpm < 80) { tempoTextString = "Muy Lento" };
+    if (bpm > 80 && bpm < 120) { tempoTextString = "Lento" };
+    if (bpm > 120 && bpm < 180) { tempoTextString = "Suave" };
+    if (bpm > 180 && bpm < 220) { tempoTextString = "Tranquilo" };
+    if (bpm > 220 && bpm < 240) { tempoTextString = "Rapido" };
+    if (bpm > 240 && bpm < 260) { tempoTextString = "Muy Rapido" };
+    if (bpm > 260 && bpm <= 280) { tempoTextString = "Demasiado Rapido" };
     tempoText.textContent = tempoTextString;
 }
 
 function validateTempo() {
     if (bpm <= 20) { return };
     if (bpm >= 280) { return };
+    console.log(bpm);
+    document.getElementById('total_bpm').value = bpm
 }
 
 function playClick() {
     if (count === beatsPerMeasure) {
         count = 0;
-
     }
     if (count === 0) {
         click1.play();
@@ -152,10 +154,12 @@ function playClick() {
         click2.currentTime = 0;
     }
     count++;
+    document.getElementById('total_beats').value = beatsPerMeasure
 }
+
 
 const metronome = new Timer(playClick, 60000 / bpm, { immediate: true });
 
-
-// 
+//console.log(metronome);
+//
 // document.getElementById('btn-guardar').style.opacity = "1"

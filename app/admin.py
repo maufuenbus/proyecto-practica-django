@@ -12,7 +12,7 @@ admin.site.register(Memorice, memoriceAdmin)
 
 # METRONOMO
 class metronomoAdmin(admin.ModelAdmin):
-    list_display = ["bpm", "beats", "duracion", "timestamp"]
+    list_display = ["bpm", "beats", "duracion", "timestamp"]  # , "audio"
 
 
 admin.site.register(Metronomo, metronomoAdmin)

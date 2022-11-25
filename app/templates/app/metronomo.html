@@ -26,7 +26,7 @@
                     <span class="tempo">140</span>
                     <span class="bpm">BPM</span>
                 </div>
-                <div class="tempo-text">Nice and steady</div>
+                <div class="tempo-text">Suave</div>
                 <div class="tempo-settings">
                     <div class="adjust-tempo-btn decrease-tempo">-</div>
                     <input type="range" min="20" max="280" step="1" class="slider">
@@ -48,7 +48,7 @@
                 <section>
                     {% load crispy_forms_tags %}
                     <form action="" method="post">
-                        <div style="display:none">
+                        <div style="">
                             <h4>Ingresa una entrada</h4>
                             {% csrf_token %}
                             {{form | crispy}}

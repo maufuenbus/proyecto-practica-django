@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .forms import *
-from .models import Memorice
+from .models import Memorice, Metronomo
 
 
 def index(request):
@@ -41,6 +41,7 @@ def metronomo(request):
             post.bpm = request.POST["bpm"]
             post.beats = request.POST["beats"]
             post.duracion = request.POST["duracion"]
+            # post.audio = request.POST['audio']
             # post.usuario_id = request.user.id
             formulario.save()
         else:
