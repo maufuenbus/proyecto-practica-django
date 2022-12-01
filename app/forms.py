@@ -1,5 +1,13 @@
 from django import forms
-from .models import Memorice, Metronomo
+from .models import *
+
+
+class VocalizacionForm(forms.ModelForm):
+    class Meta:
+        """Meta definition for Vocalizacionform."""
+
+        model = Vocalizacion
+        fields = '__all__'  # 'beats', 'bpm'
 
 # MEMORICE
 
@@ -28,40 +36,4 @@ class MemoriceForm(forms.ModelForm):
 
     class Meta:
         model = Memorice
-        fields = 'acierto', 'tiempo', 'movimientos',
-
-######################### METRONOMO ###############################
-
-
-class MetronomoForm(forms.ModelForm):
-    bpm = forms.CharField(label='Cantidad de bpm', widget=forms.TextInput(
-        attrs={
-
-            'placeholder': 'Ingresa cantidad de bpm',
-            'id': 'total_bpm'
-        }))
-
-    beats = forms.CharField(label='Cantidad de beats', widget=forms.TextInput(
-        attrs={
-
-            'placeholder': 'Ingresa cantidad de beats',
-            'id': 'total_beats'
-        }))
-
-    duracion = forms.CharField(label='duracion', widget=forms.TextInput(
-        attrs={
-
-            'placeholder': 'Ingresa la duracion',
-            'id': 'total_duracion'
-        }))
-
-    # audio = forms.FileField(widget=forms.FileInput(
-    #     attrs={
-
-    #         'placeholder': 'Ingresa audio',
-    #         'id': 'audio'
-    #     }))
-
-    class Meta:
-        model = Metronomo
-        fields = 'bpm', 'beats', 'duracion',  # 'audio'
+        fields = 'acierto', 'tiempo', 'movimientos'

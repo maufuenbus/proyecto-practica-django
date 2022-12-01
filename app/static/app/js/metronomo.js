@@ -18,17 +18,17 @@ class Timer {
             }
 
             this.timeout = setTimeout(this.round, this.timeInterval);
-            //console.log('Timer Started');
+            console.log('Timer Started');
         };
         // Add method to stop timer
         this.stop = () => {
 
             clearTimeout(this.timeout);
-            // console.log('Timer Stopped');
+            console.log('Timer Stopped');
         };
         // Round method that takes care of running the callback and adjusting the time
         this.round = () => {
-            // console.log('timeout', this.timeout);
+            console.log('timeout', this.timeout);
             // The drift will be the current moment in time for this round minus the expected time..
             let drift = Date.now() - this.expected;
             // Run error callback if drift is greater than time interval, and if the callback is provided
@@ -41,13 +41,17 @@ class Timer {
             callback();
             // Increment expected time by time interval for every round after running the callback function.
             this.expected += this.timeInterval;
-            // console.log('Drift:', drift);
-            // console.log('Next round time interval:', this.timeInterval - drift);
+            console.log('Drift:', drift);
+            console.log('Next round time interval:', this.timeInterval - drift);
             // Run timeout again and set the timeInterval of the next iteration to the original time interval minus the drift.
             this.timeout = setTimeout(this.round, this.timeInterval - drift);
         };
     }
 }
+
+
+
+
 
 const tempoDisplay = document.querySelector('.tempo');
 const tempoText = document.querySelector('.tempo-text');
@@ -74,17 +78,14 @@ decreaseTempoBtn.addEventListener('click', () => {
     validateTempo();
     updateMetronome();
 });
-
 increaseTempoBtn.addEventListener('click', () => {
     if (bpm >= 280) { return };
     bpm++;
     validateTempo();
     updateMetronome();
 });
-
 tempoSlider.addEventListener('input', () => {
     bpm = tempoSlider.value;
-
     validateTempo();
     updateMetronome();
 });
@@ -95,16 +96,12 @@ subtractBeats.addEventListener('click', () => {
     measureCount.textContent = beatsPerMeasure;
     count = 0;
 });
-
 addBeats.addEventListener('click', () => {
     if (beatsPerMeasure >= 12) { return };
     beatsPerMeasure++;
     measureCount.textContent = beatsPerMeasure;
     count = 0;
 });
-
-
-
 
 startStopBtn.addEventListener('click', () => {
     count = 0;
@@ -123,26 +120,25 @@ function updateMetronome() {
     tempoDisplay.textContent = bpm;
     tempoSlider.value = bpm;
     metronome.timeInterval = 60000 / bpm;
+    if (bpm <= 40) { tempoTextString = "Super Slow" };
+    if (bpm > 40 && bpm < 80) { tempoTextString = "Slow" };
+    if (bpm > 80 && bpm < 120) { tempoTextString = "Getting there" };
+    if (bpm > 120 && bpm < 180) { tempoTextString = "Nice and Steady" };
+    if (bpm > 180 && bpm < 220) { tempoTextString = "Rock n' Roll" };
+    if (bpm > 220 && bpm < 240) { tempoTextString = "Funky Stuff" };
+    if (bpm > 240 && bpm < 260) { tempoTextString = "Relax Dude" };
+    if (bpm > 260 && bpm <= 280) { tempoTextString = "Eddie Van Halen" };
 
-    if (bpm <= 40) { tempoTextString = "Demasiado Lento" };
-    if (bpm > 40 && bpm < 80) { tempoTextString = "Muy Lento" };
-    if (bpm > 80 && bpm < 120) { tempoTextString = "Lento" };
-    if (bpm > 120 && bpm < 180) { tempoTextString = "Suave" };
-    if (bpm > 180 && bpm < 220) { tempoTextString = "Tranquilo" };
-    if (bpm > 220 && bpm < 240) { tempoTextString = "Rapido" };
-    if (bpm > 240 && bpm < 260) { tempoTextString = "Muy Rapido" };
-    if (bpm > 260 && bpm <= 280) { tempoTextString = "Demasiado Rapido" };
     tempoText.textContent = tempoTextString;
 }
-
 function validateTempo() {
     if (bpm <= 20) { return };
     if (bpm >= 280) { return };
-    console.log(bpm);
-    document.getElementById('total_bpm').value = bpm
+    //document.getElementById('total_bpm').value = bpm
 }
 
 function playClick() {
+    console.log(count);
     if (count === beatsPerMeasure) {
         count = 0;
     }
@@ -154,12 +150,8 @@ function playClick() {
         click2.currentTime = 0;
     }
     count++;
-    document.getElementById('total_beats').value = beatsPerMeasure
+    //document.getElementById('total_beats').value = beatsPerMeasure
 }
-
 
 const metronome = new Timer(playClick, 60000 / bpm, { immediate: true });
 
-//console.log(metronome);
-//
-// document.getElementById('btn-guardar').style.opacity = "1"

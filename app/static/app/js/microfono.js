@@ -38,7 +38,6 @@ const init = () => {
     let tiempoInicio, mediaRecorder, idIntervalo;
     const refrescar = () => {
         $duracion.textContent = segundosATiempo((Date.now() - tiempoInicio) / 1000);
-
     }
 
 
@@ -66,7 +65,6 @@ const init = () => {
     const comenzarAContar = () => {
         tiempoInicio = Date.now();
         idIntervalo = setInterval(refrescar, 500);
-
     };
 
     // Comienza a grabar el audio con el dispositivo seleccionado
@@ -87,8 +85,7 @@ const init = () => {
                     const fragmentosDeAudio = [];                                   // En el arreglo pondremos los datos que traiga el evento dataavailable
                     mediaRecorder.addEventListener("dataavailable", evento => {     // Escuchar cuando haya datos disponibles
                         fragmentosDeAudio.push(evento.data);                         // Y agregarlos a los fragmentos
-                        console.log(fragmentosDeAudio)
-                        //document.getElementById('total_duracion').value = duracion// se ve por consola el objeto
+                        console.log(fragmentosDeAudio)                          // se ve por consola el objeto
                     });
 
 
@@ -98,26 +95,6 @@ const init = () => {
                         stream.getTracks().forEach(track => track.stop());
                         // Detener la cuenta regresiva
                         detenerConteo();
-
-                        // Convertir los fragmentos a un objeto binario
-                        // const blobAudio = new Blob(fragmentosDeAudio);
-                        // const formData = new FormData();
-                        // // Enviar el BinaryLargeObject con FormData
-                        // formData.append("audio", blobAudio);
-
-                        // const RUTA_SERVIDOR = 'http://localhost:3000/subir';   ////////AQUI VA LA RUTA DEL SERVIDOR
-                        // $duracion.textContent = "Enviando audio...";
-                        // fetch(RUTA_SERVIDOR, {
-                        //     method: "POST",
-                        //     body: formData,
-                        // })
-                        //     .then(respuestaRaw => respuestaRaw.text()) // Decodificar como texto
-                        //     .then(respuestaComoTexto => {
-                        //         // Aquí haz algo con la respuesta ;)
-                        //         console.log("La respuesta: ", respuestaComoTexto);
-                        //         // Abrir el archivo, es opcional y solo lo pongo como demostración
-                        //         $duracion.innerHTML = `<strong>Audio subido correctamente.</strong>&nbsp; <a target="_blank" href="${respuestaComoTexto}">Abrir</a>`
-                        //     })
                     });
 
                     // Cuando se detenga (haciendo click en el botón) se ejecuta esto
@@ -145,14 +122,13 @@ const init = () => {
             });
     };
 
+
     const detenerConteo = () => {
         clearInterval(idIntervalo);
         tiempoInicio = null;
         const duracion = $duracion.textContent
-        document.getElementById('total_duracion').value = duracion
-        console.log(duracion);
+        // document.getElementById('total_duracion').value = duracion
         $duracion.textContent = "";
-
     }
 
     const detenerGrabacion = () => {

@@ -10,11 +10,11 @@ let temporizador = false;
 let timer = 60;
 let timerInicial = timer;
 let tiempoRegresivoId = null;
-let winAudio = new Audio('./assets/recursos/sonidos-memorice/win.wav')
-let loseAudio = new Audio('./assets/recursos/sonidos-memorice/lose.wav')
-let clickAudio = new Audio('./assets/recursos/sonidos-memorice/click.wav')
-let rightAudio = new Audio('./assets/recursos/sonidos-memorice/right.wav')
-let wrongAudio = new Audio('./assets/recursos/sonidos-memorice/wrong.wav')
+let winAudio = new Audio('static/app/recursos/sonidos-memorice/win.wav')
+let loseAudio = new Audio('static/app/recursos/sonidos-memorice/lose.wav')
+let clickAudio = new Audio('static/app/recursos/sonidos-memorice/click.wav')
+let rightAudio = new Audio('static/app/recursos/sonidos-memorice/right.wav')
+let wrongAudio = new Audio('static/app/recursos/sonidos-memorice/wrong.wav')
 
 //apuntandor html
 let mostrarMovimientos = document.getElementById('movimientos')
@@ -89,7 +89,7 @@ function destapar(id) {
 
             if (aciertos == 8) {
                 clearInterval(tiempoRegresivoId);
-                mostrarAciertos.innerHTML = `Aciertos!!: ${aciertos} 🙈​🙊​`
+                mostrarAciertos.innerHTML = `Aciertos: ${aciertos} 🙈​🙊​`
                 mostrarTiempo.innerHTML = `Fantastico! 🙌​ solo demoraste ${timerInicial - timer} segundos`
                 mostrarMovimientos.innerHTML = `Movimientos: ${movimientos} 💪​😄`
 
@@ -97,6 +97,8 @@ function destapar(id) {
                 document.getElementById('total_tiempo').value = timerInicial - timer
                 document.getElementById('total_movimientos').value = movimientos
                 document.getElementById('btn-guardar').style.opacity = "1"
+
+
 
                 winAudio.play();
             }

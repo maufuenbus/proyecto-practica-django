@@ -1,18 +1,23 @@
 from django.contrib import admin
-from .models import Memorice, Metronomo
+from .models import *
+# Register your models here.
+
+# VOCALIZACION
+
+
+class VocalizacionAdmin(admin.ModelAdmin):
+    list_display = ["usuario", "audio"]  # , "bpm", "beats", "timestamp"
+
+
+admin.site.register(Vocalizacion, VocalizacionAdmin)
 
 
 # MEMORICE
-class memoriceAdmin(admin.ModelAdmin):
-    list_display = ["acierto", "tiempo", "movimientos", "timestamp"]
 
 
-admin.site.register(Memorice, memoriceAdmin)
+class MemoriceAdmin(admin.ModelAdmin):
+    list_display = ["usuario", "acierto", "tiempo",
+                    "movimientos", "timestamp"]
 
 
-# METRONOMO
-class metronomoAdmin(admin.ModelAdmin):
-    list_display = ["bpm", "beats", "duracion", "timestamp"]  # , "audio"
-
-
-admin.site.register(Metronomo, metronomoAdmin)
+admin.site.register(Memorice, MemoriceAdmin)
