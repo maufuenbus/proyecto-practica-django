@@ -26,8 +26,17 @@ def intensidad(request):
     return render(request, 'app/intensidad.html')
 
 
+def eva_param_func(request):
+    return render(request, 'app/eva_param_func.html')
+
+
+def crucigrama(request):
+    return render(request, 'app/crucigrama.html')
+
 ###################### MEMORICE #######################
 ################ NO TOCAR DE MOMENTO ##################
+
+
 def memorama(request):
     data = {
         'form': MemoriceForm,
