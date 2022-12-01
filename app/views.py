@@ -30,6 +30,10 @@ def eva_param_func(request):
     return render(request, 'app/eva_param_func.html')
 
 
+def eva_param_text(request):
+    return render(request, 'app/eva_param_text.html')
+
+
 def crucigrama(request):
     return render(request, 'app/crucigrama.html')
 

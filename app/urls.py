@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, crucigrama, eva_param_func, memorama, VocalizacionView, intensidad, oscilograma, medidor
+from .views import index, crucigrama, eva_param_func, eva_param_text, memorama, VocalizacionView, intensidad, oscilograma, medidor
 
 
 urlpatterns = [
@@ -11,4 +11,5 @@ urlpatterns = [
     path('oscilograma/', oscilograma, name="oscilograma"),
     path('medidor/', medidor, name="medidor"),
     path('eva_param_func/', eva_param_func, name="eva_param_func"),
+    path('eva_param_text/', eva_param_text, name="eva_param_text"),
 ]
