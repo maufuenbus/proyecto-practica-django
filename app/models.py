@@ -24,3 +24,21 @@ class Memorice(models.Model):
 
     def __str__(self):
         return str(self.usuario)
+
+
+class VocalPalabras(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    audio = models.FileField(upload_to='archivos_media')
+
+    def __str__(self):
+        return str(self.usuario)
+
+
+class VocalTexto(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    audio = models.FileField(upload_to='archivos_media')
+
+    def __str__(self):
+        return str(self.usuario)

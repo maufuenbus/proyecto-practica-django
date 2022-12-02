@@ -1,6 +1,8 @@
 from django import forms
 from .models import *
 
+# VOCALIZACION O METRONOMO
+
 
 class VocalizacionForm(forms.ModelForm):
     class Meta:
@@ -37,3 +39,19 @@ class MemoriceForm(forms.ModelForm):
     class Meta:
         model = Memorice
         fields = 'acierto', 'tiempo', 'movimientos'
+
+# EJERCICIO PALABRAS
+
+
+class VocalPalabras(forms.ModelForm):
+    class Meta:
+        model = VocalPalabras
+        fields = '__all__'
+
+# LECTURA DE TEXTO
+
+
+class VocalTexto(forms.ModelForm):
+    class Meta:
+        model = VocalTexto
+        fields = '__all__'

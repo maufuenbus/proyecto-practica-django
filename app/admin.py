@@ -21,3 +21,21 @@ class MemoriceAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Memorice, MemoriceAdmin)
+
+# EJERCICIO DE PALABRAS
+
+
+class VocalPalabrasAdmin(admin.ModelAdmin):
+    list_display = ["usuario", "audio", "timestamp"]
+
+
+admin.site.register(VocalPalabras, VocalPalabrasAdmin)
+
+# LECTURA TEXTO
+
+
+class VocalTextoAdmin(admin.ModelAdmin):
+    list_display = ["usuario", "audio", "timestamp"]
+
+
+admin.site.register(VocalTexto, VocalTextoAdmin)
