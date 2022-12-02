@@ -9,36 +9,57 @@ from django.views.generic import View
 from django.http import JsonResponse
 from django.shortcuts import redirect
 
+############### INDEX #####################
+
 
 def index(request):
     return render(request, 'app/index.html')
+
+############### OSCILOGRAMA#####################
 
 
 def oscilograma(request):
     return render(request, 'app/oscilograma.html')
 
+############### MEDIDOR DECIBEL #####################
+
 
 def medidor(request):
     return render(request, 'app/medidor-sonido.html')
+
+############### INTENSIDAD (NO VA)#####################
 
 
 def intensidad(request):
     return render(request, 'app/intensidad.html')
 
+############### EJERCICIO PALABRAS#####################
+
 
 def eva_param_func(request):
+    def get(self, request, *args, **kwargs):
+        print(request.user.id)
+        return render(request, 'app/eva_param_func.html')
+
+    def post(self, request, *args, **kwargs):
+        print("hola estoy en el post")
+        audio = Audio()
+        audio.grabarAudio(str(request.user.id))
     return render(request, 'app/eva_param_func.html')
+
+################## EJERCICIO LECTURA#######################
 
 
 def eva_param_text(request):
     return render(request, 'app/eva_param_text.html')
+
+################## CRUCIGRAMA########################
 
 
 def crucigrama(request):
     return render(request, 'app/crucigrama.html')
 
 ###################### MEMORICE #######################
-################ NO TOCAR DE MOMENTO ##################
 
 
 def memorama(request):

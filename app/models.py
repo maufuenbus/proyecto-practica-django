@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db import models
 # Create your models here.
 
+# VOCALIZACION O METRONOMO
+
 
 class Vocalizacion(models.Model):
     usuario = models.ForeignKey(User,  on_delete=models.CASCADE)
@@ -13,6 +15,8 @@ class Vocalizacion(models.Model):
 
     def __str__(self):
         return str(self.usuario)
+
+# MEMORICE O MEMORAMA
 
 
 class Memorice(models.Model):
@@ -25,6 +29,8 @@ class Memorice(models.Model):
     def __str__(self):
         return str(self.usuario)
 
+# EJERCICIO PALABRAS
+
 
 class VocalPalabras(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -33,6 +39,8 @@ class VocalPalabras(models.Model):
 
     def __str__(self):
         return str(self.usuario)
+
+# EJERCICIO LECTURA
 
 
 class VocalTexto(models.Model):
