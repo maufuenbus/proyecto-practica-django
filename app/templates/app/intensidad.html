@@ -7,15 +7,15 @@
 {% endblock %}
 
 {% block contenido %}
-
-<form method="POST" id="post-form">
-                    {% csrf_token %}
-                    <div id="tiempo" style="display: none;">
-                        <h3>La grabacion terminara automaticamente en 5 segundos</h3>
-                    </div>
-                    <button type="submit" id="start_stop" class="start-stop" onclick="MostrarTiempo()">START</button>
-                    
-                </form>
+<div style="width:100%; display:flex; justify-content:center; margin:5px;">
+    <form method="POST" id="post-form">
+        {% csrf_token %}
+        <div id="tiempo" style="display: none;">
+            <h3>La grabacion terminara automaticamente en 5 segundos</h3>
+        </div>
+        <button type="submit" id="start_stop" class="start-stop" onclick="MostrarTiempo()">START</button>
+    </form>
+</div>
 <link type="text/css" rel="stylesheet" href="{% static 'app/css/oscilagrama.css' %}">
 
 <div class="oscilograma">
