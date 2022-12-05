@@ -15,11 +15,21 @@ from django.shortcuts import redirect
 def index(request):
     return render(request, 'app/index.html')
 
-############### OSCILOGRAMA#####################
+############### INTENSIDAD #####################
 
 
-def oscilograma(request):
-    return render(request, 'app/oscilograma.html')
+class IntensidadView(View):
+
+    def get(self, request, *args, **kwargs):
+        print(request.user.id)
+        return render(request, 'app/intensidad.html')
+
+    def post(self, request, *args, **kwargs):
+        print("hola estoy en el post")
+        audio = Audio()
+        audio.grabarAudio(str(request.user.id))
+        return render(request, 'app/intensidad.html')
+
 
 ############### MEDIDOR DECIBEL #####################
 
@@ -27,11 +37,8 @@ def oscilograma(request):
 def medidor(request):
     return render(request, 'app/medidor-sonido.html')
 
-############### INTENSIDAD (NO VA)#####################
+############### oscilograma ####################
 
-
-def intensidad(request):
-    return render(request, 'app/intensidad.html')
 
 ############### EJERCICIO PALABRAS#####################
 

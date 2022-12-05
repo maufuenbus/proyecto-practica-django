@@ -8,6 +8,14 @@
 
 {% block contenido %}
 
+<form method="POST" id="post-form">
+                    {% csrf_token %}
+                    <div id="tiempo" style="display: none;">
+                        <h3>La grabacion terminara automaticamente en 5 segundos</h3>
+                    </div>
+                    <button type="submit" id="start_stop" class="start-stop" onclick="MostrarTiempo()">START</button>
+                    
+                </form>
 <link type="text/css" rel="stylesheet" href="{% static 'app/css/oscilagrama.css' %}">
 
 <div class="oscilograma">
@@ -135,8 +143,8 @@
     </div>
 </div>
 {% block js %}
-
-
+<script src="{% static 'app/js/oscilagrama/metronomo.js'  %}"></script>
+<script src="{% static 'app/js/oscilagrama/microfono.js'    %}"></script>
 <script src="{% static 'app/js/oscilagrama/oscilagrama.js'  %}"></script>
 <script src="{% static 'app/js/oscilagrama/chart.js'        %}"></script>
 <script src="{% static 'app/js/oscilagrama/data.js'         %}"></script>

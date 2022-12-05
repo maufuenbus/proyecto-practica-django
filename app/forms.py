@@ -18,7 +18,7 @@ class IntensidadForm(forms.ModelForm):
         """Meta definition for Vocalizacionform."""
 
         model = Intensidad
-        fields = '__all__'  # 'beats', 'bpm'
+        fields = '__all__'
 
 # MEMORICE
 
