@@ -12,6 +12,14 @@ class VocalizacionAdmin(admin.ModelAdmin):
 admin.site.register(Vocalizacion, VocalizacionAdmin)
 
 
+# INTENSIDAD
+class IntensidadAdmin(admin.ModelAdmin):
+    list_display = ["usuario", "audio"]  # , "bpm", "beats", "timestamp"
+
+
+admin.site.register(Intensidad, IntensidadAdmin)
+
+
 # MEMORICE
 
 

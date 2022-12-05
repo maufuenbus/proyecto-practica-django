@@ -16,6 +16,17 @@ class Vocalizacion(models.Model):
     def __str__(self):
         return str(self.usuario)
 
+
+# INTENSIDAD
+
+class Intensidad(models.Model):
+    usuario = models.ForeignKey(User,  on_delete=models.CASCADE)
+    audio = models.FileField(upload_to='archivos_media')
+
+    def __str__(self):
+        return str(self.usuario)
+
+
 # MEMORICE O MEMORAMA
 
 
